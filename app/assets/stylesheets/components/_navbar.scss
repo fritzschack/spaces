@@ -13,10 +13,12 @@
 
 /* Logo */
 .navbar-brand img {
-  height: 50px;
+  height: 40px;
   position: absolute;
+  top: 15px;
   left: 25px;
-
+  transform: rotate(-20deg);
+  opacity: 0.8;
 }
 
 /* User Avatar */
@@ -43,11 +45,11 @@
 
 /* Navbar link */
 .navbar-link {
-  color: #616668;
+  color: black;
   font-size: 14px;
 }
 .navbar-link:hover {
-  color: #da552f;
+  opacity: 0.7;
   text-decoration: none;
 }
 
