@@ -1,2 +1,13 @@
 <h1>Spaces#index</h1>
 <p>Find me in app/views/spaces/index.html.erb</p>
+
+<ul>
+  <% @spaces.each do |space| %>
+    <li>
+      <h3><%= link_to space.name, space_path(space) %></h3>
+      <h3><%= space.price_per_day %></h3>
+      <h4><%= space.address %> | <%= space.phone %> | <%= link_to "Website", space.website %></h4>
+      <h5><%= space.description %></h5>
+    </li>
+  <% end %>
+</ul>
