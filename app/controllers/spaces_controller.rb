@@ -1,5 +1,5 @@
 class SpacesController < ApplicationController
-  before_action :set_space, only: [:show, :destroy]
+  before_action :set_space, only: [:show, :edit, :update, :destroy]
 
   def index
     @spaces = Space.all
@@ -14,11 +14,20 @@ class SpacesController < ApplicationController
 
   def create
     @space = Space.new(space_params)
+    @space.user_id = current_user.id
     if @space.save
       redirect_to spaces_path
     else
       render :new
     end
+  end
+
+  def edit
+  end
+
+  def update
+    @space.update(space_params)
+    redirect_to space_path(@space)
   end
 
   def destroy
@@ -33,6 +42,6 @@ class SpacesController < ApplicationController
   end
 
   def space_params
-    params.require(:space).permit(:name, :description, :address, :phone, :user_id, :price_per_day, :website)
+    params.require(:space).permit(:name, :description, :address, :phone, :price_per_day, :website)
   end
 end
