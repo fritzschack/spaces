@@ -1,5 +1,9 @@
 <%= render "./components/navbar" %>
 <div class="container">
+  <% if @spaces.count == 0 %>
+    <p>There are currently no space(s) available!</p>
+  <% end %>
+
   <ul>
     <% @spaces.each do |space| %>
       <li>

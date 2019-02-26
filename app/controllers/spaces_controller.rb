@@ -1,5 +1,7 @@
 class SpacesController < ApplicationController
-  before_action :set_space, only: [:show, :edit, :update, :destroy]
+  before_action :set_space, only: [:show, :edit, :update ]
+  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: :show
 
   def index
     @spaces = Space.all
@@ -34,8 +36,8 @@ class SpacesController < ApplicationController
   end
 
   def destroy
-    @space.destroy
-    redirect_to spaces_path
+    Space.delete(Space.where(user_id: current_user.id))
+    redirect_to my_profile_path
   end
 
   private
