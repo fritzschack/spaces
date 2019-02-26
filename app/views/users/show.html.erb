@@ -1,2 +1,15 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+  <div class="profile-options">
+
+    <%= link_to edit_user_path(current_user.id) do %>
+      <i class='fas fa-user-edit'></i>
+    <% end %>
+  </div>
+
+
+<%= @user.first_name %>
+<%= @user.last_name %>
+<%= @user.description %>
+<%= @user.email %>
+<%= @user.is_host %>
+</div>
