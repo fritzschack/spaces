@@ -13,3 +13,11 @@
 @import "layouts/index";
 @import "components/index";
 @import "pages/index";
+
+// Our Pages
+@import "users/show";
+
+
+hr {
+  border-color: black;
+}
