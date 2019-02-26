@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  resources :users
   resources :spaces do
     resources :bookings
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :profiles, only: [:show]
+  get "/my_profile", to: "profiles#my_profile", as: "my_profile"
 end

@@ -1,5 +1,8 @@
-<h2>Booking for <%= @booking.space.name %></h2>
-<h2>By <%= @booking.user.first_name %> <%= @booking.user.last_name %></h2>
-<h4><%= @booking.start_date%> until <%= @booking.end_date%></h4>
-<%= link_to "update", edit_space_booking_path(@booking.space_id, @booking)%>
-<%= link_to "delete", space_booking_path(@booking.space_id, @booking), method: :delete %>
+<%= render "./components/navbar" %>
+<div class="container">
+  <h2>Booking for <%= @booking.space.name %></h2>
+  <h2>By <%= @booking.user.first_name %> <%= @booking.user.last_name %></h2>
+  <h4><%= @booking.start_date%> until <%= @booking.end_date%></h4>
+  <%= link_to "update", edit_space_booking_path(@booking.space_id, @booking)%>
+  <%= link_to "delete", space_booking_path(@booking.space_id, @booking), method: :delete %>
+</div>
