@@ -7,14 +7,12 @@
     <% end %>
   </div>
 
-
   <%= current_user.first_name %>
   <%= current_user.last_name %>
   <%= current_user.description %>
   <%= current_user.email %>
 
-
-  <% if current_user.is_host == true %>
+  <% if current_user.spaces.length > 0 %>
     <h3>You are hosting: </h3>
       <div class="hosting-spaces">
         <% @spaces.each do |space| %>
@@ -25,6 +23,8 @@
               <p><%= space.description %></p>
               <p style="font-size: 10px;">Added on: <%= space.created_at.to_s.slice(0, 10).split('-').reverse.join("-") %></p>
             </div>
+            <%= link_to "Edit Space", edit_space_path(current_user) %>
+            <%= link_to "Delete Space", space_path(current_user), :method => 'delete' %>
           </div>
         <% end %>
       </div>
