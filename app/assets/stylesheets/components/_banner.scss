@@ -1,8 +1,9 @@
 .banner {
   color: white;
   text-align: center;
-  height: calc(100vh - 70px);
+  height: 100vh;
   background-size: cover !important;
+  background-position: bottom;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,11 +17,12 @@
   font-size: 25px;
   font-weight: lighter;
   color: rgb(255, 255, 255);
-  opacity: 0.6;
+  opacity: 0.9;
   margin-bottom: 30px;
 }
 
 .button {
   border-radius: 25px;
-  padding: 5px 15px;
+  padding: 8px 35px;
 }
+
