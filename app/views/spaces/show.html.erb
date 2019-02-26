@@ -5,6 +5,6 @@
   <h4><%= @space.address %> | <%= @space.phone %> | <%= link_to "Website", "https://#{@space.website}/", target: :_blank %></h4>
   <h5><%= @space.description %></h5>
   <%= link_to "Edit", edit_space_path %> | <%= link_to "Delete", space_path(@space), method: :delete %>
+  <br><br>
+  <%= link_to "Book this space", new_space_booking_path(@space), :class => "btn btn-primary button"%>
 </div>
-<br>
-<%= link_to "Book this space", new_space_booking_path(@space), :class => "btn btn-primary"%>
