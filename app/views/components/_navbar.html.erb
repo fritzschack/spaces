@@ -3,7 +3,12 @@
     <img src="http://cdn.onlinewebfonts.com/svg/img_534974.png" alt="logo">
   </a>
 
+
+
   <div class="navbar-right hidden-xs hidden-sm">
+    <% if user_signed_in?  %>
+      <%= link_to "Add A Space", new_space_path, :class => 'btn btn-primary add-space-button' %>
+    <% end %>
     <div class="navbar-item">
       <div class="dropdown">
           <% if user_signed_in? %>

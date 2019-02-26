@@ -14,10 +14,9 @@
 @import "components/index";
 @import "pages/index";
 
+@import "html_components/hr";
+
 // Our Pages
 @import "users/show";
 
 
-hr {
-  border-color: black;
-}
