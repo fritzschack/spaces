@@ -7,9 +7,17 @@
   </div>
 
 
-<%= @user.first_name %>
-<%= @user.last_name %>
-<%= @user.description %>
-<%= @user.email %>
-<%= @user.is_host %>
+  <%= @user.first_name %>
+  <%= @user.last_name %>
+  <%= @user.description %>
+  <%= @user.email %>
+
+
+  <% if current_user.is_host == true %>
+  <div class="hosting-spaces">
+    <p>Hello, this is a test</p>
+  </div>
+  <% end %>
+
+
 </div>
