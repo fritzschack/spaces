@@ -14,9 +14,19 @@
 
 
   <% if current_user.is_host == true %>
-  <div class="hosting-spaces">
-    <p>Hello, this is a test</p>
-  </div>
+  <h3>You Are Hosting: </h3>
+    <div class="hosting-spaces">
+      <% @spaces.each do |space| %>
+        <div class="show-space">
+          <div class="show-space-content">
+            <h5><%= space.name %></h5>
+            <p><%= space.price_per_day %> per day | <%= space.address %></p>
+            <p><%= space.description %></p>
+            <p style="font-size: 10px;">Added on: <%= space.created_at.to_s.slice(0, 10).split('-').reverse.join("-") %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
   <% end %>
 
 
