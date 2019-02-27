@@ -12,15 +12,19 @@ class SpacesController < ApplicationController
 
   def new
     @space = Space.new
+    @space_images = @space.photos.build
   end
 
   def create
     @space = Space.new(space_params)
-    @space.user_id = current_user.id
+    @space.user = current_user
     @user = current_user
     @user.is_host = true
     @user.save
     if @space.save
+      params[:space][:photos_attributes]['0']['image_url'].each do |a|
+        @space_images = @space.photos.create!(image_url: a)
+      end
       redirect_to spaces_path
     else
       render :new
@@ -37,7 +41,6 @@ class SpacesController < ApplicationController
 
   def destroy
     space = Space.find(params[:id])
-    # space.bookings.destroy_all
     space.destroy
     redirect_to my_profile_path
   end
@@ -49,6 +52,6 @@ class SpacesController < ApplicationController
   end
 
   def space_params
-    params.require(:space).permit(:name, :description, :address, :phone, :price_per_day, :website)
+    params.require(:space).permit(:name, :description, :address, :phone, :price_per_day, photos_attributes: [:id, :user_id, :image_url])
   end
 end

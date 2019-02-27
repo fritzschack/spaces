@@ -6,7 +6,8 @@
   <% counter = 1 %>
   <% @spaces.first(6).each do |space| %>
     <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/featured/?coworking/<%= counter %>');">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url('<%= cl_image_path space.photos[1].image_url, height: 300, width: 400, crop: :fill %>')">
         <div class="card-name">
           <h2><%= space.name %></h2>
         </div>
@@ -23,6 +24,8 @@
 <div class="show-more">
   <%= link_to "Show More...", spaces_path, :class => 'show-more-button btn btn-primary' %>
 </div>
+
+
 
 
 

@@ -6,7 +6,11 @@
   <h3>Your Profile:</h3>
   <div class="my-profile">
     <div class="profile-pic">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Placeholder_no_text.svg/2000px-Placeholder_no_text.svg.png" alt="Profile Picture">
+      <% if current_user.profile_picture.nil? %>
+        <img src=“https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Placeholder_no_text.svg/2000px-Placeholder_no_text.svg.png” alt=“Profile-Picture”>
+      <% else %>
+        <%= cl_image_tag current_user.profile_picture, height: 150, width: 150, crop: :fill %>
+      <% end %>
     </div>
     <div class="profile-info-left">
       <p><strong>Name:</strong> <%= current_user.first_name %> <%= current_user.last_name %></p>

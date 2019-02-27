@@ -22,6 +22,20 @@
   color: white;
 }
 
+.navbar-logo-home-text {
+  position: absolute;
+  top: 15px;
+  left: 80px;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  text-decoration: none;
+  &:hover {
+    color: white;
+  }
+}
+
 /* User Avatar */
 .navbar-home .avatar {
   font-size: 25px;
