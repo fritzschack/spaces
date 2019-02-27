@@ -1,5 +1,10 @@
 <%= render "./components/navbar" %>
 <div class="container">
+
+  <% @space.photos.each do |p| %>
+    <%= cl_image_tag p.image_url, height: 300 %>
+  <% end %>
+
   <h1><%= @space.name %></h1>
   <h3>$<%= @space.price_per_day %></h3>
   <h4><%= @space.address %> | <%= @space.phone %> | <%= link_to "Website", "https://#{@space.website}/", target: :_blank %></h4>

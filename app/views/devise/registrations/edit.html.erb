@@ -12,10 +12,13 @@
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
+      <%= f.input :profile_picture %>
+      <%= f.input :profile_picture_cache, as: :hidden %>
 
       <%= f.input :first_name %>
       <%= f.input :last_name %>
       <%= f.input :description %>
+
 
       <%= f.input :password,
                   :label => "New Password",
