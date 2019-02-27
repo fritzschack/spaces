@@ -28,17 +28,17 @@
 
   <div class="navbar-item hidden-md hidden-lg">
     <% if user_signed_in?  %>
-      <%= link_to "Add A Space", new_space_path, :class => 'btn btn-primary add-space-button' %>
+      <%= link_to "Add A Space", new_space_path, :class => 'btn btn-primary add-space-button-small' %>
     <% end %>
-    <div class="dropdown">
-      <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
+    <div class="dropdown-small">
+      <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button" style="color: white;"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-dropdown-menu">
         <% if user_signed_in? %>
           <li><%= link_to "My Profile", my_profile_path %></li>
           <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
         <% else %>
-          <%= link_to "Login", new_user_session_path, :class => "navbar-home-item navbar-home-link" %>
-          <%= link_to "Create Account", new_user_registration_path, :class => "navbar-home-item navbar-home-link" %>
+          <li><%= link_to "Login", new_user_session_path, :class => "navbar-home-item navbar-home-link" %></li>
+          <li><%= link_to "Create Account", new_user_registration_path, :class => "navbar-home-item navbar-home-link" %></li>
         <% end %>
       </ul>
     </div>
