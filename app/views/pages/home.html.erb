@@ -1,12 +1,22 @@
 <%= render "./components/navbar_home" %>
 <%= render "./components/banner" %>
 
-<!--
 <div class="container">
-  <div class="row">
-    For Each Space Do
-      import _card.scss
-    end
-  </div>
+  <% @spaces.each do |space| %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1536724609414-5f000e9a2745?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80');">
+        <div class="card-description">
+          <h2><%= space.name %></h2>
+          <p><%= space.description %></p>
+        </div>
+        <img class="card-user" src="">
+      </div>
+    </div>
+  <% end %>
 </div>
- -->
+
+
+
+
+
+
