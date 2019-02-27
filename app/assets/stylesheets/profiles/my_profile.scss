@@ -3,27 +3,37 @@
   padding: 10px;
   margin: 10px 0;
   position: relative;
-  height: 200px;
+  height: auto;
   display: flex;
+  justify-content: space-between;
+}
+
+.profile-pic {
+  flex: 0 0 auto;
+  text-align: center;
+  img {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 
 .profile-info-left {
   // border: 1px solid black;
-  position: absolute;
-  left: 25%;
-  bottom: 0;
-  max-width: 50%;
+  flex: 1 0 auto;
+  max-width: 40%;
   padding: 15px;
   height: auto;
 }
 
 .profile-info-right {
   // border: 1px solid black;
-  position: absolute;
-  right: 10px;
-  bottom: 20%;
-  max-width: 50%;
+  flex: 0 0 auto;
+  // max-width: 50%;
   padding: 15px;
   height: auto;
+}
+
+.edit-icon {
+  font-size: 30px;
 }

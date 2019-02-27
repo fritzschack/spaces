@@ -1,29 +1,25 @@
 <%= render "./components/navbar" %>
 <div class="container">
-  <div class="profile-options">
+  <!-- <div class="profile-options">
 
-    <%= link_to edit_user_registration_path do %>
-      <i class='fas fa-user-edit'></i>
-    <% end %>
-  </div>
-
+  </div> -->
   <h3>Your Profile:</h3>
   <div class="my-profile">
     <div class="profile-pic">
-
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Placeholder_no_text.svg/2000px-Placeholder_no_text.svg.png" alt="Profile Picture">
     </div>
-    <div class="profile-info">
-      <div class="profile-info-left">
-        <p><strong>Name:</strong> <%= current_user.first_name %> <%= current_user.last_name %></p>
-        <p><strong>Email:</strong> <%= current_user.email %></p>
-        <p><strong>Description:</strong> <%= current_user.description %></p>
-      </div>
-      <div class="profile-info-right">
-        <p><strong>Number of spaces you are currently hosting: </strong><%= current_user.spaces.length %></p>
-        <p><strong>Number of bookings made by you: </strong><%= current_user.bookings.length %></p>
-      </div>
-
+    <div class="profile-info-left">
+      <p><strong>Name:</strong> <%= current_user.first_name %> <%= current_user.last_name %></p>
+      <p><strong>Email:</strong> <%= current_user.email %></p>
+      <p><strong>Description:</strong> <%= current_user.description %></p>
     </div>
+    <div class="profile-info-right">
+      <p><strong>Number of spaces you are currently hosting: </strong><%= current_user.spaces.length %></p>
+      <p><strong>Number of bookings made by you: </strong><%= current_user.bookings.length %></p>
+    </div>
+    <%= link_to edit_user_registration_path do %>
+      <i class='fas fa-user-edit edit-icon'></i>
+    <% end %>
   </div>
 
 
@@ -34,7 +30,7 @@
         <% @spaces.each do |space| %>
           <div class="show-space">
             <div class="show-space-content">
-              <h5><%= space.name %></h5>
+              <h4><%= space.name %></h4>
               <p>$<%= space.price_per_day %> per day | <%= space.address %></p>
               <p><%= space.description %></p>
               <p style="font-size: 10px;">Added on: <%= space.created_at.to_s.slice(0, 10).split('-').reverse.join("-") %></p>
@@ -54,11 +50,13 @@
           <div class="show-space">
             <div class="show-space-content">
               <h5><%= booking.start_date %> - <%= booking.end_date %></h5>
-              <h3>Booking at <%= booking.space.name %></h3>
-              <p><%= booking.space.price_per_day %> per day | <%= booking.space.address %></p>
+              <h4>Booking at <%= booking.space.name %></h4>
+              <p>$<%= booking.space.price_per_day %> per day | <%= booking.space.address %></p>
               <p><%= booking.space.description %></p>
               <p style="font-size: 10px;">Booked on: <%= booking.created_at.to_s.slice(0, 10).split('-').reverse.join("-") %></p>
             </div>
+            <%= link_to "Edit booking", edit_space_booking_path(booking.space_id, booking)%>
+            <%= link_to "Delete booking", space_booking_path(booking.space_id, booking), method: :delete %>
           </div>
         <% end %>
       </div>

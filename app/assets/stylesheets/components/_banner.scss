@@ -26,3 +26,15 @@
   padding: 8px 50px;
 }
 
+.down-arrow {
+  position: absolute;
+  bottom: 50px;
+  i {
+    color: white;
+    font-size: 40px;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
