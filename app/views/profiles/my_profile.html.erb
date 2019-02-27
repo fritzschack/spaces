@@ -24,7 +24,7 @@
               <p style="font-size: 10px;">Added on: <%= space.created_at.to_s.slice(0, 10).split('-').reverse.join("-") %></p>
             </div>
             <%= link_to "Edit Space", edit_space_path(current_user) %>
-            <%= link_to "Delete Space", space_path(current_user), :method => 'delete' %>
+            <%= link_to "Delete Space", space_path(space), :method => 'delete' %>
           </div>
         <% end %>
       </div>

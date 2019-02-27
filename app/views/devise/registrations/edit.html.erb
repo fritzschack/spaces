@@ -18,11 +18,13 @@
       <%= f.input :description %>
 
       <%= f.input :password,
-                  hint: "leave it blank if you don't want to change it",
+                  :label => "New Password",
+                  hint: "leave the new password blank if you don't want to change it",
                   required: false,
                   input_html: { autocomplete: "new-password" } %>
       <%= f.input :password_confirmation,
                   required: false,
+                  :label => "New Password Confirmation",
                   input_html: { autocomplete: "new-password" } %>
       <%= f.input :current_password,
                   hint: "we need your current password to confirm your changes",

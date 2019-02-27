@@ -36,7 +36,9 @@ class SpacesController < ApplicationController
   end
 
   def destroy
-    Space.delete(Space.where(user_id: current_user.id))
+    space = Space.find(params[:id])
+    # space.bookings.destroy_all
+    space.destroy
     redirect_to my_profile_path
   end
 
