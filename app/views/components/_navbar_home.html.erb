@@ -27,9 +27,9 @@
 
   <div class="navbar-item hidden-md hidden-lg">
     <% if user_signed_in?  %>
-      <%= link_to "Add A Space", new_space_path, :class => 'btn btn-primary add-space-button' %>
+      <%= link_to "Add A Space", new_space_path, :class => 'btn btn-primary add-space-button-small' %>
     <% end %>
-    <div class="dropdown">
+    <div class="dropdown-small">
       <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button" style="color: white;"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-dropdown-menu">
         <% if user_signed_in? %>

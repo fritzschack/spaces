@@ -56,14 +56,15 @@
 }
 
 /* Dropdown menu */
-.dropdown {
+.dropdown-small {
   position: absolute;
-  top: 20px;
-  right: 30px;
+  top: 22px;
+  right: 15px;
 }
 
 .navbar-dropdown-menu {
   margin-top: 15px;
+  margin-left: 15px;
   box-shadow: 1px 1px 4px #E6E6E6;
   border-color: #E6E6E6;
 }
@@ -96,6 +97,14 @@
   font-size: 12px;
   border-radius: 25px;
   margin-top:5px;
+}
+
+.add-space-button-small {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  font-size: 12px;
+  border-radius: 25px;
 }
 
 .navbar-black {
