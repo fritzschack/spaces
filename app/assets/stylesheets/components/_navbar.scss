@@ -56,6 +56,12 @@
 }
 
 /* Dropdown menu */
+.dropdown {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+
 .navbar-dropdown-menu {
   margin-top: 15px;
   box-shadow: 1px 1px 4px #E6E6E6;
