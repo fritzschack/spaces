@@ -1,16 +1,19 @@
 <%= render "./components/navbar" %>
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-        <h2>Edit your booking</h2>
+<%= render "./components/small_banner" %>
+<div class="form-container">
+  <div class="login-form">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+          <h2>Edit your booking</h2>
 
-        <%= simple_form_for [@space, @booking] do |f| %>
-          <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-          <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-          <%= f.button :submit, class: "btn btn-primary" %>
-        <% end %>
-        <%#= raise %>
+          <%= simple_form_for [@space, @booking] do |f| %>
+            <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+            <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+            <%= f.button :submit, class: "btn btn btn-primary button" %>
+          <% end %>
+            <%#= raise %>
+        </div>
       </div>
     </div>
   </div>
