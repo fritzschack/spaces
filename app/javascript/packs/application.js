@@ -1,5 +1,6 @@
 import "bootstrap";
 import "../plugins/flatpickr"
+import Siema from 'siema';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';
@@ -12,4 +13,8 @@ initAutocomplete();
 initMapbox();
 initUpdateNavbarOnScroll();
 autoScrollHome();
+
+const mySiema = new Siema();
+document.querySelector('.prev').addEventListener('click', () => mySiema.prev());
+document.querySelector('.next').addEventListener('click', () => mySiema.next());
 
