@@ -4,10 +4,43 @@ class SpacesController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
 
   def index
-    @spaces = Space.all
+    if params[:query] == ''
+      @spaces = Space.where.not(latitude: nil, longitude: nil)
+      @markers = @spaces.map do |space|
+        {
+          lng: space.longitude,
+          lat: space.latitude
+        }
+      end
+    elsif params[:query]
+      @spaces = Space.near(params[:query], 20)
+
+      @markers = @spaces.map do |space|
+        {
+          lng: space.longitude,
+          lat: space.latitude
+        }
+      end
+
+    else
+      @spaces = Space.where.not(latitude: nil, longitude: nil)
+      @markers = @spaces.map do |space|
+        {
+          lng: space.longitude,
+          lat: space.latitude
+        }
+      end
+    end
   end
 
   def show
+    @space_map = Space.where(id: params[:id])
+    @markers = @space_map.map do |space|
+      {
+        lng: space.longitude,
+        lat: space.latitude
+      }
+    end
   end
 
   def new
@@ -32,6 +65,10 @@ class SpacesController < ApplicationController
   end
 
   def edit
+    if current_user.id != @space.user_id
+      redirect_to root_path
+      flash[:alert] = 'Not Gonna Happen'
+    end
   end
 
   def update
@@ -40,9 +77,14 @@ class SpacesController < ApplicationController
   end
 
   def destroy
-    space = Space.find(params[:id])
-    space.destroy
-    redirect_to my_profile_path
+    if current_user.id != @space.user_id
+      redirect_to root_path
+      flash[:alert] = 'Not Gonna Happen'
+    else
+      space = Space.find(params[:id])
+      space.destroy
+      redirect_to my_profile_path
+    end
   end
 
   private
