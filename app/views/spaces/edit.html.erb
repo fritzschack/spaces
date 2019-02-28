@@ -1,30 +1,36 @@
 <%= render "./components/navbar" %>
-<div class="container">
-  <%= simple_form_for @space do |f| %>
-    <%= f.error_notification %>
-    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<%= render "./components/small_banner" %>
+<div class="form-wrapper">
+  <div class="form-container">
+    <div class="login-form">
+      <h1>Edit</h1>
+      <%= simple_form_for @space do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-    <div class="form-inputs">
-      <%= f.input :name %>
-    </div>
-    <div class="form-inputs">
-      <%= f.input :price_per_day %>
-    </div>
-    <div class="form-inputs">
-      <%= f.input :address %>
-    </div>
-    <div class="form-inputs">
-      <%= f.input :phone %>
-    </div>
-    <div class="form-inputs">
-      <%= f.input :website %>
-    </div>
-    <div class="form-inputs">
-      <%= f.input :description %>
-    </div>
+        <div class="form-inputs">
+          <%= f.input :name %>
+        </div>
+        <div class="form-inputs">
+          <%= f.input :price_per_day %>
+        </div>
+        <div class="form-inputs">
+          <%= f.input :address %>
+        </div>
+        <div class="form-inputs">
+          <%= f.input :phone %>
+        </div>
+        <div class="form-inputs">
+          <%= f.input :website %>
+        </div>
+        <div class="form-inputs">
+          <%= f.input :description %>
+        </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, :class => "btn btn-warning" %>
+        <div class="form-actions">
+          <%= f.button :submit, :class => "btn btn-warning" %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>
