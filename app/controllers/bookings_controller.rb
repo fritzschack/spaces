@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     @booking.space_id = params[:space_id]
     @booking.user_id = current_user.id
     if @booking.save
-      redirect_to space_booking_path(@booking.space_id, @booking)
+      redirect_to my_profile_path
     else
       render 'new'
     end

@@ -1,7 +1,7 @@
 import "bootstrap";
 import "../plugins/flatpickr"
-import Siema from 'siema';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import Siema from 'siema';
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { autoScrollHome } from '../components/autoScrollHome';
