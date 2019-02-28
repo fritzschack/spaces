@@ -1,8 +1,8 @@
 <%= render "./components/navbar" %>
 <div class="container">
-  <h3><%= current_user.first_name %>'s Profile:</h3>
   <div class="my-profile">
     <div class="my-profile-left">
+      <h3><%= current_user.first_name %>'s Profile:</h3>
       <%= link_to edit_user_registration_path do %>
         <i class='fas fa-user-edit edit-icon'></i>
       <% end %>
