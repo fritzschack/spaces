@@ -10,6 +10,7 @@
 <div class="container" style="margin-top: 90px; margin-bottom: 40px;">
   <h3>$<%= @space.price_per_day %></h3>
   <h4><%= @space.phone %> | <%= link_to "Website", "https://#{@space.website}/", target: :_blank %></h4>
+  <small>Hosted by: <%= User.find(@space.user_id).first_name %></small>
   <h5><%= @space.description %></h5>
   <%= link_to "Edit", edit_space_path %> | <%= link_to "Delete", space_path(@space), method: :delete %>
   <br>
