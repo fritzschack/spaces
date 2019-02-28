@@ -7,30 +7,41 @@
 
 <%= render "./components/gallery" %>
 
-<div class="container" style="margin-top: 90px; margin-bottom: 40px;">
-  <h3>$<%= @space.price_per_day %></h3>
-  <h4><%= @space.phone %> | <%= link_to "Website", "https://#{@space.website}/", target: :_blank %></h4>
-  <small>Hosted by: <%= User.find(@space.user_id).first_name %></small>
-  <h5><%= @space.description %></h5>
-  <%= link_to "Edit", edit_space_path %> | <%= link_to "Delete", space_path(@space), method: :delete %>
-  <br>
-  <h3>Location:</h3>
-</div>
 
-<div
-  class="map"
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
 
 <div class="container">
+  <div class="row">
+    <div class="col-md-4 price-col">
+      <h3>$<%= @space.price_per_day %> Per Day</h3>
+    </div>
+    <div class="col-md-4 offset-md-4 hosted_by_card">
+      <%= link_to profile_path(@hosted_by.id) do %>
+          <%= cl_image_tag @hosted_by.profile_picture, height: 100, width: 100, crop: :fill, :class => 'hosted-by-image' %>
+          <small>Hosted by: <%= @hosted_by.first_name %> <%= @hosted_by.last_name %></small>
+      <% end %>
+      <button type="button" class="btn btn-secondary contact-me-button">Contact Me</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 space-description">
+      <h5><strong>Description:</strong></h5>
+      <h5><%= @space.description %></h5>
+    </div>
+    <div class="col-md-4 offset-md-4">
 
-
+    </div>
+  </div>
 </div>
 
 
+<div class="container">
+  <div
+    class="map"
+    id="map"
+    style="width: 100%;
+    height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
 
-<!-- heroku config:set RUN THIS -->
+</div>

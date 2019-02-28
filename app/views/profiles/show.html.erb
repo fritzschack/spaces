@@ -1,26 +1,41 @@
 <%= render "./components/navbar" %>
 <div class="container">
-
-  <%= @profile.first_name %>
-  <%= @profile.last_name %>
-  <%= @profile.description %>
-  <%= @profile.email %>
-
-  <% if @profile.is_host == true %>
-    <h3>Hosting: </h3>
-      <div class="hosting-spaces">
-        <% @spaces.each do |space| %>
-          <div class="show-space">
-            <div class="show-space-content">
-              <h5><%= space.name %></h5>
-              <p><%= space.price_per_day %> per day | <%= space.address %></p>
-              <p><%= space.description %></p>
-              <p style="font-size: 10px;">Added on: <%= space.created_at.to_s.slice(0, 10).split('-').reverse.join("-") %></p>
-            </div>
-          </div>
-        <% end %>
+  <div class="profile">
+    <div class="profile-left">
+      <h3><%= @profile.first_name %>'s Profile:</h3>
+      <div class="profile-pic">
+        <%= cl_image_tag @profile.profile_picture, height: 150, width: 150, crop: :fill %>
       </div>
-  <% end %>
+      <h4><%= @profile.first_name %> <%= @profile.last_name %></h4>
+      <p><small></small> <%= @profile.email %></small></p>
+      <hr>
+      <p><small><%= @profile.description %></small> </p>
+    </div>
 
-
+    <div class="profile-right">
+      <% if @profile.spaces.length > 0 %>
+        <div class="hosting">
+        <h3 style="text-align:center;">All Spaces From <%= @profile.first_name %></h3>
+        <hr>
+          <div class="hosting-spaces">
+            <% @spaces.each do |space| %>
+              <div class="show-space">
+                <%= cl_image_tag space.photos[1].image_url, height: 100, width: 150, crop: :fill, :class => 'show-image' %>
+                <div class="show-space-content">
+                  <p>
+                    <%= link_to space.name, space_path(space) %>
+                    <br>
+                    <small>$<%= space.price_per_day %> per day | <%= space.address %></small>
+                    <br>
+                    <small><%= space.description %></small>
+                    <p style="font-size: 10px;">Added on: <%= space.created_at.to_s.slice(0, 10).split('-').reverse.join("-") %></p>
+                  </p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
