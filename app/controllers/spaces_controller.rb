@@ -28,6 +28,7 @@ class SpacesController < ApplicationController
   end
 
   def show
+    @hosted_by = User.find(@space.user_id)
     @space_map = Space.where(id: params[:id])
     @markers = @space_map.map do |space|
       {
