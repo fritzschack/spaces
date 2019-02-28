@@ -1,14 +1,17 @@
 <%= render "./components/navbar" %>
 <%= render "./components/small_banner" %>
-<div class="wrapper">
-  <div class="container">
+<div class="form-wrapper">
+  <div class="form-container">
     <div class="login-form">
+      <div>
+        <h1> Create A New Coworking Space</h1>
+      </div>
       <%= simple_form_for @space do |f| %>
         <%= f.error_notification %>
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
         <div class="form-inputs">
           <%= f.simple_fields_for :photos do |p| %>
-            <%= p.input :image_url, as: :file, input_html: { multiple: true }  %>
+            <%= p.input :image_url, label: "Images", as: :file, input_html: { multiple: true }  %>
             <%= p.input :image_url_cache, as: :hidden %>
           <% end %>
             <%= f.input :name %>
@@ -19,7 +22,7 @@
             <%= f.input :description %>
         </div>
         <div class="form-actions">
-          <%= f.button :submit, :class => "btn btn-warning" %>
+          <%= f.button :submit, :class => "btn btn-warning buttonv" %>
         </div>
       <% end %>
     </div>
