@@ -3,7 +3,6 @@
 
 <div id="home-cards" class="container container-home">
   <h2>Explore our spaces</h2>
-  <% counter = 1 %>
   <% @spaces.first(6).each do |space| %>
     <div class="col-xs-12 col-sm-6 col-md-4">
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
@@ -18,17 +17,9 @@
         <%= link_to "", space_path(space), :class => "card_link"  %>
       </div>
     </div>
-    <% counter += 1 %>
   <% end %>
+
 </div>
 <div class="show-more">
   <%= link_to "Show More...", spaces_path, :class => 'show-more-button btn btn-primary' %>
 </div>
-
-
-
-
-
-
-
-

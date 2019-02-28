@@ -23,13 +23,7 @@ class SpacesController < ApplicationController
       end
 
     else
-      @spaces = Space.where.not(latitude: nil, longitude: nil)
-      @markers = @spaces.map do |space|
-        {
-          lng: space.longitude,
-          lat: space.latitude
-        }
-      end
+      @spaces = Space.all
     end
   end
 
@@ -77,14 +71,9 @@ class SpacesController < ApplicationController
   end
 
   def destroy
-    if current_user.id != @space.user_id
-      redirect_to root_path
-      flash[:alert] = 'Not Gonna Happen'
-    else
-      space = Space.find(params[:id])
-      space.destroy
-      redirect_to my_profile_path
-    end
+    space = Space.find(params[:id])
+    space.destroy
+    redirect_to my_profile_path
   end
 
   private

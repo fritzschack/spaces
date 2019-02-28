@@ -3,68 +3,77 @@
   <!-- <div class="profile-options">
 
   </div> -->
-  <h3>Your Profile:</h3>
+  <h3><%= current_user.first_name %>'s Profile:</h3>
   <div class="my-profile">
-    <div class="profile-pic">
-      <% if current_user.profile_picture.nil? %>
-        <img src=“https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Placeholder_no_text.svg/2000px-Placeholder_no_text.svg.png” alt=“Profile-Picture”>
-      <% else %>
+    <div class="my-profile-left">
+      <%= link_to edit_user_registration_path do %>
+        <i class='fas fa-user-edit edit-icon'></i>
+      <% end %>
+      <div class="profile-pic">
         <%= cl_image_tag current_user.profile_picture, height: 150, width: 150, crop: :fill %>
+      </div>
+      <h4><%= current_user.first_name %> <%= current_user.last_name %></h4>
+      <p><small></small> <%= current_user.email %></small></p>
+      <hr>
+      <p><small><%= current_user.description %></small> </p>
+    </div>
+
+    <div class="my-profile-right">
+
+      <% if current_user.spaces.length > 0 %>
+        <div class="hosting">
+        <h3 style="text-align:center;">You Are Hosting:</h3>
+        <hr>
+          <div class="hosting-spaces">
+            <% @spaces.each do |space| %>
+              <div class="show-space">
+                <%= cl_image_tag space.photos[1].image_url, height: 100, width: 150, crop: :fill, :class => 'show-image' %>
+                <div class="show-space-content">
+                  <p>
+                    <%= link_to space.name, space_path(space) %>
+                    <br>
+                    <small>$<%= space.price_per_day %> per day | <%= space.address %></small>
+                    <br>
+                    <small><%= space.description %></small>
+                    <p style="font-size: 10px;">Added on: <%= space.created_at.to_s.slice(0, 10).split('-').reverse.join("-") %></p>
+                  </p>
+                </div>
+                <%= link_to "Edit Space", edit_space_path(current_user), :class => 'profile-buttons' %>
+                <%= link_to "Delete Space", space_path(space), :method => 'delete', :class => 'profile-buttons'%>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+
+      <% if current_user.bookings.length > 0 %>
+        <div class="booking">
+        <h3 style="text-align:center;">You Have Booked:</h3>
+        <hr>
+          <div class="booked-spaces">
+            <% current_user.bookings.each do |booking| %>
+              <div class="show-booked-space">
+                <div class="show-booked-space-content">
+                  <p>
+                    <strong>Booking at <%= booking.space.name %></strong>
+                    <br>
+                    <%= booking.start_date %> - <%= booking.end_date %>
+                    <br>
+                    <small>$<%= booking.space.price_per_day %> per day | <%= booking.space.address %></small>
+                    <br>
+                    <small><%= booking.space.description %></small>
+                    <br>
+                    <small> Booked on: <%= booking.created_at.to_s.slice(0, 10).split('-').reverse.join("-") %></small>
+                  </p>
+                </div>
+                <%= link_to "Edit booking", edit_space_booking_path(booking.space_id, booking), :class => 'profile-buttons'%>
+                <%= link_to "Delete booking", space_booking_path(booking.space_id, booking), method: :delete, :class => 'profile-buttons'%>
+              </div>
+            <% end %>
+          </div>
+        </div>
       <% end %>
     </div>
-    <div class="profile-info-left">
-      <p><strong>Name:</strong> <%= current_user.first_name %> <%= current_user.last_name %></p>
-      <p><strong>Email:</strong> <%= current_user.email %></p>
-      <p><strong>Description:</strong> <%= current_user.description %></p>
-    </div>
-    <div class="profile-info-right">
-      <p><strong>Number of spaces you are currently hosting: </strong><%= current_user.spaces.length %></p>
-      <p><strong>Number of bookings made by you: </strong><%= current_user.bookings.length %></p>
-    </div>
-    <%= link_to edit_user_registration_path do %>
-      <i class='fas fa-user-edit edit-icon'></i>
-    <% end %>
   </div>
-
-
-  <% if current_user.spaces.length > 0 %>
-    <hr>
-    <h3>You Are Hosting: </h3>
-      <div class="hosting-spaces">
-        <% @spaces.each do |space| %>
-          <div class="show-space">
-            <div class="show-space-content">
-              <h4><%= link_to space.name, space_path(space) %></h4>
-              <p>$<%= space.price_per_day %> per day | <%= space.address %></p>
-              <p><%= space.description %></p>
-              <p style="font-size: 10px;">Added on: <%= space.created_at.to_s.slice(0, 10).split('-').reverse.join("-") %></p>
-            </div>
-            <%= link_to "Edit Space", edit_space_path(current_user) %>
-            <%= link_to "Delete Space", space_path(space), :method => 'delete' %>
-          </div>
-        <% end %>
-      </div>
-  <% end %>
-
-  <% if current_user.bookings.length > 0 %>
-    <hr>
-    <h3>Your Bookings: </h3>
-      <div class="hosting-spaces">
-        <% current_user.bookings.each do |booking| %>
-          <div class="show-space">
-            <div class="show-space-content">
-              <h5><%= booking.start_date %> - <%= booking.end_date %></h5>
-              <h4>Booking at <%= booking.space.name %></h4>
-              <p>$<%= booking.space.price_per_day %> per day | <%= booking.space.address %></p>
-              <p><%= booking.space.description %></p>
-              <p style="font-size: 10px;">Booked on: <%= booking.created_at.to_s.slice(0, 10).split('-').reverse.join("-") %></p>
-            </div>
-            <%= link_to "Edit booking", edit_space_booking_path(booking.space_id, booking)%>
-            <%= link_to "Delete booking", space_booking_path(booking.space_id, booking), method: :delete %>
-          </div>
-        <% end %>
-      </div>
-  <% end %>
-
-
 </div>
