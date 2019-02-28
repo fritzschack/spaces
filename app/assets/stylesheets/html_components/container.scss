@@ -5,3 +5,18 @@
 .container-home {
   margin-top: 40px;
 }
+
+.flex-container {
+  margin: auto;
+  width: 1110px;
+  position: relative;
+  top: 80px;
+  h1 {
+    position: absolute;
+    left: 0;
+  }
+  a {
+    position: absolute;
+    right: 0;
+  }
+}

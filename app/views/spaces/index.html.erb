@@ -1,25 +1,42 @@
 <%= render "./components/navbar" %>
+
 <div class="container">
-  <% if @spaces.count == 0 %>
-    <p>There are currently no space(s) available!</p>
-  <% end %>
-
-  <% counter = 1 %>
-  <% @spaces.each do |space| %>
-    <% counter += 1 %>
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-         url('<%= cl_image_path space.photos[1].image_url, height: 300, width: 400, crop: :fill %>')">
-
-       <div class="card-name">
-          <h2><%= space.name %></h2>
-        </div>
-        <div class="card-description">
-          <p>$<%= space.price_per_day %> per day | <%= space.address %></p>
-        </div>
-        <img class="card-user" src="">
-        <%= link_to "", space_path(space), :class => "card_link"  %>
-      </div>
-    </div>
+  <%= form_tag spaces_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control search",
+      placeholder: "Find Spaces Near You..."
+    %>
   <% end %>
 </div>
+<div class="map-content">
+  <div class="container">
+    <div class="row">
+      <% if @spaces.size == 0 %>
+        <h3>Sorry, No Results Were Found!</h3>
+      <% else %>
+        <% @spaces.each do |space| %>
+          <div class="col-xs-12 col-sm-6 col-md-6" style="justify-content: space-around;">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+               url('<%= cl_image_path space.photos[1].image_url, height: 300, width: 400, crop: :fill %>')">
+             <div class="card-name">
+                <h2><%= space.name %></h2>
+              </div>
+              <div class="card-description">
+                <p>$<%= space.price_per_day %> per day</p>
+                <p><%= space.address %></p>
+              </div>
+              <%= link_to "", space_path(space), :class => "card_link"  %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
+</div>
+
+
