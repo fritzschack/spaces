@@ -1,0 +1,16 @@
+<div class="gallery-wrapper">
+  <div class="gallery-container">
+    <div class="siema">
+      <% @space.photos.each do |photo| %>
+        <%= cl_image_tag photo.image_url, width: 1110, height: 600, crop: :fill %>
+      <% end %>
+    </div>
+    <div class="prev-button prev">
+      <i class="fas fa-arrow-circle-left prev-icon"></i>
+    </div>
+    <div class="next-button next">
+      <i class="fas fa-arrow-circle-right next-icon"></i>
+    </div>
+  </div>
+</div>
+

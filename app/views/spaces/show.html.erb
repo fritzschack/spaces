@@ -1,15 +1,15 @@
 <%= render "./components/navbar" %>
-<div class="container">
 
-  <% @space.photos.each do |p| %>
-    <%= cl_image_tag p.image_url, height: 300 %>
-  <% end %>
-
+<div class="flex-container">
   <h1><%= @space.name %></h1>
+  <%= link_to "Book this space", new_space_booking_path(@space), :class => "btn btn-primary button",:style => "margin-top: 31px;"%>
+</div>
+
+<%= render "./components/gallery" %>
+
+<div class="container" style="margin-top: 90px; margin-bottom: 40px;">
   <h3>$<%= @space.price_per_day %></h3>
   <h4><%= @space.address %> | <%= @space.phone %> | <%= link_to "Website", "https://#{@space.website}/", target: :_blank %></h4>
   <h5><%= @space.description %></h5>
   <%= link_to "Edit", edit_space_path %> | <%= link_to "Delete", space_path(@space), method: :delete %>
-  <br><br>
-  <%= link_to "Book this space", new_space_booking_path(@space), :class => "btn btn-primary button"%>
 </div>
