@@ -34,7 +34,7 @@
         <% @spaces.each do |space| %>
           <div class="show-space">
             <div class="show-space-content">
-              <h4><%= space.name %></h4>
+              <h4><%= link_to space.name, space_path(space) %></h4>
               <p>$<%= space.price_per_day %> per day | <%= space.address %></p>
               <p><%= space.description %></p>
               <p style="font-size: 10px;">Added on: <%= space.created_at.to_s.slice(0, 10).split('-').reverse.join("-") %></p>
