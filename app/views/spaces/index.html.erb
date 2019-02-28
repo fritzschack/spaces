@@ -1,13 +1,15 @@
 <%= render "./components/navbar" %>
 
 <div class="container">
-  <%= form_tag spaces_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control search",
-      placeholder: "Find Spaces Near You..."
-    %>
-  <% end %>
+  <div class="searchbar">
+    <%= form_tag spaces_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control search",
+        placeholder: "Find Spaces Near You..."
+      %>
+    <% end %>
+  </div>
 </div>
 <div class="map-content">
   <div class="container">
