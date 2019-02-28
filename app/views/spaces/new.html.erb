@@ -1,28 +1,27 @@
 <%= render "./components/navbar" %>
-<div class="container">
-  <%= simple_form_for @space do |f| %>
-    <%= f.error_notification %>
-    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-    <%= f.simple_fields_for :photos do |p| %>
-      <%= p.input :image_url, as: :file, input_html: { multiple: true }  %>
-      <%= p.input :image_url_cache, as: :hidden %>
-    <% end %>
-
-      <%= f.input :name %>
-
-      <%= f.input :price_per_day %>
-
-      <%= f.input :address, html: { :id => 'space_address' } %>
-
-      <%= f.input :phone %>
-
-      <%= f.input :website %>
-
-      <%= f.input :description %>
-
-    <div class="form-actions">
-      <%= f.button :submit, :class => "btn btn-warning" %>
+<%= render "./components/small_banner" %>
+<div class="wrapper">
+  <div class="container">
+    <div class="login-form">
+      <%= simple_form_for @space do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+        <div class="form-inputs">
+          <%= f.simple_fields_for :photos do |p| %>
+            <%= p.input :image_url, as: :file, input_html: { multiple: true }  %>
+            <%= p.input :image_url_cache, as: :hidden %>
+          <% end %>
+            <%= f.input :name %>
+            <%= f.input :price_per_day %>
+            <%= f.input :address %>
+            <%= f.input :phone %>
+            <%= f.input :website %>
+            <%= f.input :description %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, :class => "btn btn-warning" %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>
