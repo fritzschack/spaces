@@ -16,9 +16,12 @@
 
 @import "html_components/hr";
 @import "html_components/container";
+@import "devise/registrations/new";
+@import "devise/sessions/new";
+
 
 // Our Pages
 @import "profiles/show";
 @import "profiles/my_profile";
-
+@import "spaces/new"
 
