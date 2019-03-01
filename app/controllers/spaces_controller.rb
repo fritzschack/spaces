@@ -69,7 +69,7 @@ class SpacesController < ApplicationController
       params[:space][:photos_attributes]['0']['image_url'].each do |a|
         @space_images = @space.photos.create!(image_url: a)
       end
-      redirect_to space_path(space)
+      redirect_to space_path(@space)
     else
       render :new
     end
