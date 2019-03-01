@@ -30,12 +30,12 @@ class BookingsController < ApplicationController
 
   def update
     @booking.update(booking_params)
-    redirect_to space_booking_path(@booking.space_id, @booking)
+    redirect_to my_profile_path
   end
 
   def destroy
     @booking.destroy
-    redirect_to spaces_path
+    redirect_to my_profile_path
   end
 
   private
