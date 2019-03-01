@@ -9,7 +9,8 @@ class SpacesController < ApplicationController
       @markers = @spaces.map do |space|
         {
           lng: space.longitude,
-          lat: space.latitude
+          lat: space.latitude,
+          infoWindow: render_to_string(partial: "infowindow", locals: { space: space })
         }
       end
     elsif params[:query]
@@ -18,7 +19,8 @@ class SpacesController < ApplicationController
       @markers = @spaces.map do |space|
         {
           lng: space.longitude,
-          lat: space.latitude
+          lat: space.latitude,
+          infoWindow: render_to_string(partial: "infowindow", locals: { space: space })
         }
       end
 
@@ -27,7 +29,8 @@ class SpacesController < ApplicationController
       @markers = @spaces.map do |space|
         {
           lng: space.longitude,
-          lat: space.latitude
+          lat: space.latitude,
+          infoWindow: render_to_string(partial: "infowindow", locals: { space: space })
         }
       end
     end
