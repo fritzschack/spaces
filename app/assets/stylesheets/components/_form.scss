@@ -56,6 +56,10 @@
   width:50%;
 }
 
+.form-actions {
+  border-radius: 50px;
+}
+
 .datepicker {
   margin: auto;
   text-align: center;
@@ -69,6 +73,7 @@
 
 .ap-input-icon.ap-icon-pin {
   margin-right: 25%;
+  display: none;
 }
 
 .form-check-input {
@@ -78,6 +83,15 @@
 
 .form-check-label {
   top:5px;
+}
+
+
+.btn.btn.btn-warning {
+  border-radius: 50px;
+}
+
+.btn {
+  border-radius: 50px;
 }
 
 // .form-check.form-check-input.boolean.optional{
