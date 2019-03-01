@@ -20,12 +20,12 @@ class SpacesController < ApplicationController
 
     if params[:min_price_query].present?
       min_price = params[:min_price_query].to_i
-      @spaces = @spaces.where("price_per_day >= #{min_price}")
+      @spaces = @spaces.where("price_per_day > #{min_price}")
     end
 
     if params[:max_price_query].present?
       max_price = params[:max_price_query].to_i
-      @spaces = @spaces.where("price_per_day =< #{max_price}")
+      @spaces = @spaces.where("price_per_day < #{max_price}")
     end
 
     # raise
