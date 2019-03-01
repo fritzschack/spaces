@@ -4,7 +4,7 @@ User.create(
   description: "German guy, trying to understand the world of web developing",
   email: "fs40545@yahoo.com",
   password: "passwordfritz",
-  image_url: "image/upload/v1551398641/bgp6fbviv1mqwvzxe9ye.jpg"
+  profile_picture: "image/upload/v1551398641/bgp6fbviv1mqwvzxe9ye.jpg"
 )
 
 User.create(
@@ -13,7 +13,7 @@ User.create(
   description: "British guy, who loves fishing",
   email: "rutgerswirski.johan@gmail.com",
   password: "passwordrutger",
-  image_url: "image/upload/v1551398641/qmbhafz03fn8v4i8wup0.jpg"
+  profile_picture: "image/upload/v1551398641/qmbhafz03fn8v4i8wup0.jpg"
 )
 
 User.create(
@@ -22,7 +22,7 @@ User.create(
   description: "Angry Scotsman",
   email: "angryscotsman@gmail.com",
   password: "passwordchris",
-  image_url: "image/upload/v1551398641/xhaq8smzvvyz8qjmsana.jpg"
+  profile_picture: "image/upload/v1551398641/xhaq8smzvvyz8qjmsana.jpg"
 )
 
 Space.create(
