@@ -4,16 +4,42 @@ class SpacesController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
 
   def index
-    if params[:query] == ''
-      @spaces = Space.where.not(latitude: nil, longitude: nil)
-      markers()
-    elsif params[:query]
-      @spaces = Space.near(params[:query], 20)
-      markers()
-    else
-      @spaces = Space.all
-      markers()
+    @spaces = Space.all
+    if params[:name_query].present?
+      @spaces = @spaces.where(
+        "name @@ :name_query OR description @@ :name_query",
+        name_query: "%#{params[:name_query]}%"
+      )
     end
+
+    if params[:location_query] == ''
+      @spaces = @spaces.where.not(latitude: nil, longitude: nil)
+    elsif params[:location_query]
+      @spaces = @spaces.near(params[:location_query], 20)
+    end
+
+    if params[:min_price_query].present?
+      min_price = params[:min_price_query].to_i
+      @spaces = @spaces.where("price_per_day > #{min_price}")
+    end
+
+    if params[:max_price_query].present?
+      max_price = params[:max_price_query].to_i
+      @spaces = @spaces.where("price_per_day < #{max_price}")
+    end
+
+    # raise
+
+    if params[:order_query] == "Ascending price per day"
+      @spaces = @spaces.order(price_per_day: :asc)
+    elsif params[:order_query] == "Descending price per day"
+      @spaces = @spaces.order(price_per_day: :desc)
+    elsif params[:order_query] == "Ascending names"
+      @spaces = @spaces.order(name: :asc)
+    elsif params[:order_query] == "Descending names"
+      @spaces = @spaces.order(name: :desc)
+    end
+    set_markers
   end
 
   def show
@@ -69,7 +95,7 @@ class SpacesController < ApplicationController
 
   private
 
-  def markers
+  def set_markers
     @markers = @spaces.map do |space|
       {
         lng: space.longitude,
