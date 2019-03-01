@@ -30,12 +30,12 @@
         placeholder: "Select a maximum price"
       %>
     </div>
-    <div>
-      <%= select_tag :order_query,
+    <!-- <div> -->
+      <%#= select_tag :order_query,
         options_for_select(["Ascending price per day", "Descending price per day", "Ascending names", "Descending names"]),
         class: "form-field"
       %>
-    </div>
+    <!-- </div> -->
     <div>
       <%= submit_tag 'Search', class: "btn btn-primary" %>
     </div>

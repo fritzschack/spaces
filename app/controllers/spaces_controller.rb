@@ -30,15 +30,15 @@ class SpacesController < ApplicationController
 
     # raise
 
-    if params[:order_query] == "Ascending price per day"
-      @spaces = @spaces.order(price_per_day: :asc)
-    elsif params[:order_query] == "Descending price per day"
-      @spaces = @spaces.order(price_per_day: :desc)
-    elsif params[:order_query] == "Ascending names"
-      @spaces = @spaces.order(name: :asc)
-    elsif params[:order_query] == "Descending names"
-      @spaces = @spaces.order(name: :desc)
-    end
+    # if params[:order_query] == "Ascending price per day"
+    #   @spaces = @spaces.order(price_per_day: :asc)
+    # elsif params[:order_query] == "Descending price per day"
+    #   @spaces = @spaces.order(price_per_day: :desc)
+    # elsif params[:order_query] == "Ascending names"
+    #   @spaces = @spaces.order(name: :asc)
+    # elsif params[:order_query] == "Descending names"
+    #   @spaces = @spaces.order(name: :desc)
+    # end
     set_markers
   end
 
