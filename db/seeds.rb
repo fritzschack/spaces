@@ -4,7 +4,7 @@ User.create(
   description: "German guy, trying to understand the world of web developing",
   email: "fs40545@yahoo.com",
   password: "passwordfritz",
-  profile_picture: "image/upload/v1551398641/bgp6fbviv1mqwvzxe9ye.jpg"
+  remote_profile_picture_url: "https://media.licdn.com/dms/image/C5603AQE0_3696JsA2A/profile-displayphoto-shrink_100_100/0?e=1556755200&v=beta&t=4yMXuXdCF69AN8YN67lyQUlvQRcd1mIxZ3wK4tCvj4A"
 )
 
 User.create(
@@ -13,7 +13,7 @@ User.create(
   description: "British guy, who loves fishing",
   email: "rutgerswirski.johan@gmail.com",
   password: "passwordrutger",
-  profile_picture: "image/upload/v1551398641/qmbhafz03fn8v4i8wup0.jpg"
+  remote_profile_picture_url: "https://lh3.googleusercontent.com/a-/AN66SAwzRVnJe-EvM90b9liSjO6KZcOUqDSO8VtEF0iOdg=s640-rw-il"
 )
 
 User.create(
@@ -22,7 +22,7 @@ User.create(
   description: "Angry Scotsman",
   email: "angryscotsman@gmail.com",
   password: "passwordchris",
-  profile_picture: "image/upload/v1551398641/xhaq8smzvvyz8qjmsana.jpg"
+  remote_profile_picture_url: "https://uploads-ssl.webflow.com/5bbd08e05ef3cb7ab7978301/5bbd0a1c5ef3cb6f14978861_chriswardmepicAsset%202.png"
 )
 
 Space.create(
@@ -217,10 +217,10 @@ Space.create(
 
 Photo.create(
   space_id: 10,
-  image_url: "image/upload/v1551398641/dhmk8uyfgrivj69lfvvx"
+  remote_image_url_url: "https://inspire9.com/assets/images/content_photos/about-our-community.jpg"
 )
 
 Photo.create(
   space_id: 10,
-  image_url: "image/upload/v1551398641/gvfnxgyk5tcqh9yezxmw"
+  remote_image_url_url: "https://s3-us-west-2.amazonaws.com/s3.sharedesk.net/venues/gallery/bfbb56bee68d99affaa64f189045d5f2-large.png"
 )
