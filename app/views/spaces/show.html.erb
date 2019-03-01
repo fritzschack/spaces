@@ -1,7 +1,7 @@
 <%= render "./components/navbar" %>
 
 <div class="flex-container">
-  <h1><%= @space.name %></h1>
+  <h2><%= @space.name %> <small>| $<%= @space.price_per_day %> Per Day</small></h2>
   <%= link_to "Book this space", new_space_booking_path(@space), :class => "btn btn-primary button",:style => "margin-top: 31px;"%>
 </div>
 
@@ -11,24 +11,16 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-4 price-col">
-      <h3>$<%= @space.price_per_day %> Per Day</h3>
+    <div class="col-md-7 space-description">
+      <h5><strong>Description:</strong></h5>
+      <h5><%= @space.description %></h5>
     </div>
-    <div class="col-md-4 offset-md-4 hosted_by_card">
+    <div class="col-md-4 offset-md-1 hosted_by_card">
       <%= link_to profile_path(@hosted_by.id) do %>
           <%= cl_image_tag @hosted_by.profile_picture, height: 100, width: 100, crop: :fill, :class => 'hosted-by-image' %>
           <small>Hosted by: <%= @hosted_by.first_name %> <%= @hosted_by.last_name %></small>
       <% end %>
       <button type="button" class="btn btn-secondary contact-me-button">Contact Me</button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8 space-description">
-      <h5><strong>Description:</strong></h5>
-      <h5><%= @space.description %></h5>
-    </div>
-    <div class="col-md-4 offset-md-4">
-
     </div>
   </div>
 </div>
