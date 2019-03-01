@@ -20,12 +20,12 @@ class SpacesController < ApplicationController
 
     if params[:min_price_query].present?
       min_price = params[:min_price_query].to_i
-      @spaces = @spaces.where("price_per_day > #{min_price}")
+      @spaces = @spaces.where("price_per_day >= #{min_price}")
     end
 
     if params[:max_price_query].present?
       max_price = params[:max_price_query].to_i
-      @spaces = @spaces.where("price_per_day < #{max_price}")
+      @spaces = @spaces.where("price_per_day =< #{max_price}")
     end
 
     # raise
@@ -69,7 +69,7 @@ class SpacesController < ApplicationController
       params[:space][:photos_attributes]['0']['image_url'].each do |a|
         @space_images = @space.photos.create!(image_url: a)
       end
-      redirect_to spaces_path
+      redirect_to space_path(space)
     else
       render :new
     end
