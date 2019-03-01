@@ -3,7 +3,8 @@ User.create(
   last_name: "Schack",
   description: "German guy, trying to understand the world of web developing",
   email: "fs40545@yahoo.com",
-  password: "passwordfritz"
+  password: "passwordfritz",
+  image_url: "image/upload/v1551398641/bgp6fbviv1mqwvzxe9ye.jpg"
 )
 
 User.create(
@@ -11,7 +12,8 @@ User.create(
   last_name: "Swirski",
   description: "British guy, who loves fishing",
   email: "rutgerswirski.johan@gmail.com",
-  password: "passwordrutger"
+  password: "passwordrutger",
+  image_url: "image/upload/v1551398641/qmbhafz03fn8v4i8wup0.jpg"
 )
 
 User.create(
@@ -19,7 +21,8 @@ User.create(
   last_name: "Ward",
   description: "Angry Scotsman",
   email: "angryscotsman@gmail.com",
-  password: "passwordchris"
+  password: "passwordchris",
+  image_url: "image/upload/v1551398641/xhaq8smzvvyz8qjmsana.jpg"
 )
 
 Space.create(
@@ -32,6 +35,16 @@ Space.create(
   phone: "1800 503 098"
 )
 
+Photo.create(
+  space_id: 1,
+  remote_image_url: "https://static1.squarespace.com/static/59fa8ef5bff200bdbc32563c/t/5ac89c5188251b534819bff1/1523096738179/2J9A3880.jpg?format=2500w"
+)
+
+Photo.create(
+  space_id: 1,
+  remote_image_url: "https://www.broadsheet.com.au/media/melbourne/images/2018/03/19/135537-6597-078d76731d4f8f79646d81187c5fef2f_3l1LaQg.jpg"
+)
+
 Space.create(
   user_id: 2,
   name: "WeWork",
@@ -40,6 +53,16 @@ Space.create(
   price_per_day: 85,
   website: "www.wework.com/buildings/222-exhibition-st--melbourne",
   phone: "+61488841974"
+)
+
+Photo.create(
+  space_id: 2,
+  remote_image_url: "https://cdn.wework.com/locations/image/2bfa146c-a646-11e8-aa21-1202be33576a/AprA1jrY.jpg?auto=compress&fit=crop&faces=false&dpr=2.625&ixlib=react-8.4.0&h=220&w=450"
+)
+
+Photo.create(
+  space_id: 2,
+  remote_image_url: "https://cdn.concreteplayground.com/content/uploads/2017/11/wework2.jpg"
 )
 
 Space.create(
@@ -52,6 +75,16 @@ Space.create(
   phone: "+61462846223"
 )
 
+Photo.create(
+  space_id: 3,
+  remote_image_url: "https://coworker.imgix.net/photos/australia/melbourne/revolver-lane/1-1490824466.JPG"
+)
+
+Photo.create(
+  space_id: 3,
+  remote_image_url: "https://coworker.imgix.net/photos/australia/melbourne/revolver-lane/6-1490824466.JPG"
+)
+
 Space.create(
   user_id: 2,
   name: "Windsor Workshop",
@@ -60,6 +93,16 @@ Space.create(
   price_per_day: 100,
   website: "www.the-windsor-workshop.com",
   phone: "0421 042 251"
+)
+
+Photo.create(
+  space_id: 4,
+  remote_image_url: "https://static1.squarespace.com/static/55e7bf78e4b09880734b43ed/t/561fa988e4b0f4418bced78f/1444915620597/the-windsor-workshop-coworking-freelance-studio.jpg?format=1000w"
+)
+
+Photo.create(
+  space_id: 4,
+  remote_image_url: "https://cdn.venuemob.com.au/?url=vm-cdn3.s3-ap-southeast-2.amazonaws.com/venues/the-windsor-workshop/files/the-windsor-workshop-cover-5b074696e7843.jpg"
 )
 
 Space.create(
@@ -72,6 +115,16 @@ Space.create(
   phone: "03 9008 5980"
 )
 
+Photo.create(
+  space_id: 5,
+  remote_image_url: "http://www.creativespaces.net.au/uploads/listing-images/54183/16.jpg"
+)
+
+Photo.create(
+  space_id: 5,
+  remote_image_url: "https://coworker.imgix.net/photos/australia/melbourne/the-cluster/15-1490743883.jpg"
+)
+
 Space.create(
   user_id: 1,
   name: "Creative Cubes",
@@ -80,6 +133,16 @@ Space.create(
   price_per_day: 35,
   website: "www.creativecubes.co",
   phone: "1300 228 237"
+)
+
+Photo.create(
+  space_id: 6,
+  remote_image_url: "https://creativecubes.co/wp-content/uploads/2017/11/CreativeCubes.Co-Property-Cremorne-29.jpg"
+)
+
+Photo.create(
+  space_id: 6,
+  remote_image_url: "https://coworkingmag.com/wp-content/uploads/2019/01/Creative-Cubes-Hawthorn-coworking-melbourne-780x405.jpg"
 )
 
 Space.create(
@@ -92,6 +155,16 @@ Space.create(
   phone: "03 9041 2118"
 )
 
+Photo.create(
+  space_id: 7,
+  remote_image_url: "https://static1.squarespace.com/static/54657ca3e4b0f579a2c415e2/t/566f7de2dc5cb42a299534ab/1450147339016/_DSC1022.jpg?format=1500w"
+)
+
+Photo.create(
+  space_id: 7,
+  remote_image_url: "http://www.creativespaces.net.au/uploads/listing-images/45439/_DSC0938.jpg"
+)
+
 Space.create(
   user_id: 3,
   name: "Rotson",
@@ -100,6 +173,16 @@ Space.create(
   price_per_day: 75,
   website: "www.facebook.com/pg/RotsonStudiosFitzroy",
   phone: "0400 044 398"
+)
+
+Photo.create(
+  space_id: 8,
+  remote_image_url: "http://www.mariamontes.net/wp-content/uploads/Rotosn_1080_Teagan_Glenane.jpg"
+)
+
+Photo.create(
+  space_id: 8,
+  remote_image_url: "https://www.mariamontes.net/wp-content/uploads/Selected_1080px.jpg"
 )
 
 Space.create(
@@ -112,6 +195,16 @@ Space.create(
   phone: "1300 554 215"
 )
 
+Photo.create(
+  space_id: 9,
+  remote_image_url: "https://ybfventures.com/wp-content/uploads/2018/07/DSC_6860-1000x500.jpg"
+)
+
+Photo.create(
+  space_id: 9,
+  remote_image_url: "https://ybfventures.com/wp-content/uploads/2018/11/DSC_0494_5_tonemapped-1000x500.jpg"
+)
+
 Space.create(
   user_id: 3,
   name: "Inspire 9",
@@ -120,4 +213,14 @@ Space.create(
   price_per_day: 35,
   website: "www.inspire9.com",
   phone: "+61 (0)411 072 029"
+)
+
+Photo.create(
+  space_id: 10,
+  image_url: "image/upload/v1551398641/dhmk8uyfgrivj69lfvvx"
+)
+
+Photo.create(
+  space_id: 10,
+  image_url: "image/upload/v1551398641/gvfnxgyk5tcqh9yezxmw"
 )
