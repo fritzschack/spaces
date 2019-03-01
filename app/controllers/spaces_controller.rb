@@ -6,33 +6,13 @@ class SpacesController < ApplicationController
   def index
     if params[:query] == ''
       @spaces = Space.where.not(latitude: nil, longitude: nil)
-      @markers = @spaces.map do |space|
-        {
-          lng: space.longitude,
-          lat: space.latitude,
-          infoWindow: render_to_string(partial: "infowindow", locals: { space: space })
-        }
-      end
+      markers()
     elsif params[:query]
       @spaces = Space.near(params[:query], 20)
-
-      @markers = @spaces.map do |space|
-        {
-          lng: space.longitude,
-          lat: space.latitude,
-          infoWindow: render_to_string(partial: "infowindow", locals: { space: space })
-        }
-      end
-
+      markers()
     else
       @spaces = Space.all
-      @markers = @spaces.map do |space|
-        {
-          lng: space.longitude,
-          lat: space.latitude,
-          infoWindow: render_to_string(partial: "infowindow", locals: { space: space })
-        }
-      end
+      markers()
     end
   end
 
@@ -42,7 +22,8 @@ class SpacesController < ApplicationController
     @markers = @space_map.map do |space|
       {
         lng: space.longitude,
-        lat: space.latitude
+        lat: space.latitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { space: space })
       }
     end
   end
@@ -87,6 +68,16 @@ class SpacesController < ApplicationController
   end
 
   private
+
+  def markers
+    @markers = @spaces.map do |space|
+      {
+        lng: space.longitude,
+        lat: space.latitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { space: space })
+      }
+    end
+  end
 
   def set_space
     @space = Space.find(params[:id])

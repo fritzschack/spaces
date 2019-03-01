@@ -5,6 +5,7 @@
   </a>
 
   <div class="navbar-home-right hidden-xs hidden-sm">
+    <%= link_to "View All Spaces", spaces_path, :class => 'btn btn-light view-spaces-button' %>
     <% if user_signed_in?  %>
       <%= link_to "Add A Space", new_space_path, :class => 'btn btn-primary add-space-button' %>
     <% end %>
