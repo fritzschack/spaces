@@ -1,0 +1,9 @@
+<div class="mapboxgl-popup">
+  <div class="mapboxgl-popup-content">
+    <%= cl_image_tag space.photos[1].image_url, height: 80, crop: :fill%>
+    <h5><%= space.name %></h5>
+    <p>$<%= space.price_per_day %> Per Day</p>
+    <%= link_to "Book this space", new_space_booking_path(space), :class => "info-window-button" %>
+  </div>
+</div>
+
