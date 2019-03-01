@@ -14,9 +14,9 @@
 
     <div class="profile-right">
       <% if @profile.spaces.length > 0 %>
-        <div class="hosting">
-        <h3 style="text-align:center;">All Spaces From <%= @profile.first_name %></h3>
-        <hr>
+        <div class="hosting" style="height: 100%;">
+          <h3 style="text-align:center;">All Spaces From <%= @profile.first_name %></h3>
+          <hr>
           <div class="hosting-spaces">
             <% @spaces.each do |space| %>
               <div class="show-space">

@@ -29,3 +29,11 @@
   overflow: scroll;
   border-radius: 6px;
 }
+
+.hosted_by_name {
+  text-decoration:none;
+  color: black;
+  &:hover {
+    text-decoration:none;
+  }
+}

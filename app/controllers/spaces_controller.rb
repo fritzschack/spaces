@@ -48,7 +48,8 @@ class SpacesController < ApplicationController
     @markers = @space_map.map do |space|
       {
         lng: space.longitude,
-        lat: space.latitude
+        lat: space.latitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { space: space })
       }
     end
   end

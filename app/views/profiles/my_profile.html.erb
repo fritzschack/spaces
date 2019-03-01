@@ -1,7 +1,7 @@
 <%= render "./components/navbar" %>
 <div class="container">
-  <div class="my-profile">
-    <div class="my-profile-left">
+  <div class="profile">
+    <div class="profile-left">
       <h3><%= current_user.first_name %>'s Profile:</h3>
       <%= link_to edit_user_registration_path do %>
         <i class='fas fa-user-edit edit-icon'></i>
@@ -15,8 +15,7 @@
       <p><small><%= current_user.description %></small> </p>
     </div>
 
-    <div class="my-profile-right">
-
+    <div class="profile-right">
       <% if current_user.spaces.length > 0 %>
         <div class="hosting">
         <h3 style="text-align:center;">You Are Hosting:</h3>
